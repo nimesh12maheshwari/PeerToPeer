@@ -14,12 +14,14 @@ public class PeerToPeer {
     Main obj;
     DataOutputStream dos;
     DataInputStream dis;
-    ObjectOutputStream os=null;ObjectInputStream is=null;
+    ObjectOutputStream os=null;
+    ObjectInputStream is=null;
     Socket s=null;
     Thread t1;
     void function(Main obj){
         this.obj=obj;
-        try { 
+        try {
+            System.out.println(Main.ip);
             s = new Socket(Main.ip, 5056);
             Client();
         }
@@ -41,11 +43,11 @@ public class PeerToPeer {
                 // obtaining input and out streams 
             //dos = new DataOutputStream(s.getOutputStream());
             //dis = new DataInputStream(s.getInputStream()); 
-           is = new ObjectInputStream(s.getInputStream());
-           os = new ObjectOutputStream(s.getOutputStream());
-            //os = new ObjectOutputStream(s.getOutputStream());
+            is = new ObjectInputStream(s.getInputStream());
+            os = new ObjectOutputStream(s.getOutputStream());
+          
             //os.flush();
-            //System.out.println("Output Oject stream established");
+            System.out.println("input Oject stream established");
              //is = new ObjectInputStream(s.getInputStream());
             System.out.println("Oject stream established");
             receive();   
@@ -56,18 +58,20 @@ public class PeerToPeer {
     }
     
     void Client(){
-        Socket s; 
+        
         try {
-            s = new Socket(Main.ip, 5056);
+            //s = new Socket(Main.ip, 5056);
             System.out.println("Client socket established");
                 // obtaining input and out streams 
             //dos = new DataOutputStream(s.getOutputStream());
             //dis = new DataInputStream(s.getInputStream());
-            os = new ObjectOutputStream(s.getOutputStream()); 
+           os = new ObjectOutputStream(s.getOutputStream()); 
+          
+//            
+           System.out.println("Oject output stream established");
             is = new ObjectInputStream(s.getInputStream());
-            //System.out.println("Oject Input stream established");
-             
-            System.out.println("Output Oject stream established");
+          
+          System.out.println(" Oject input stream established ");
            
            
             

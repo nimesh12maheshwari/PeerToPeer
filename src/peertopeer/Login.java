@@ -141,10 +141,9 @@ public class Login extends javax.swing.JFrame {
         // TODO add your handling code here:
         String nme=Name.getText();
         String ip=i1.getText()+"."+i2.getText()+"."+i3.getText()+"."+i4.getText();
-        Main main=new Main();
-        
         Main.ip=ip;
         Main.name=nme;
+        Main main=new Main();
         main.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_ButtonActionPerformed

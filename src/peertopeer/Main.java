@@ -100,6 +100,7 @@ public class Main extends javax.swing.JFrame {
         // TODO add your handling code here:
         ob.send(Main.name+": "+Message.getText());
         ChatArea.append(Main.name+": "+Message.getText()+"\n");
+        Message.setText("");
     }//GEN-LAST:event_SendActionPerformed
 
     /**
