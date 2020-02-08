@@ -5,6 +5,9 @@
  */
 package peertopeer;
 
+import java.io.File;
+import javax.swing.JFileChooser;
+
 
 public class Main extends javax.swing.JFrame {
 
@@ -59,6 +62,11 @@ public class Main extends javax.swing.JFrame {
         });
 
         Text.setText("File");
+        Text.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                TextActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -102,6 +110,15 @@ public class Main extends javax.swing.JFrame {
         ChatArea.append(Main.name+": "+Message.getText()+"\n");
         Message.setText("");
     }//GEN-LAST:event_SendActionPerformed
+
+    private void TextActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TextActionPerformed
+       JFileChooser jk=new JFileChooser();
+  jk.showOpenDialog(null);
+  File f=jk.getSelectedFile();
+  String  fn = f.getPath();
+        
+  ChatArea.append(fn+"\n");  // TODO add your handling code here:
+    }//GEN-LAST:event_TextActionPerformed
 
     /**
      * @param args the command line arguments
