@@ -96,6 +96,14 @@ public class PeerToPeer {
                             
                             obj.showMessage(m.str);
                         } catch (Exception ex) {
+                            try {
+                                is.close();os.close();s.close();
+                                break;
+                            } catch (IOException ex1) {
+                                Logger.getLogger(PeerToPeer.class.getName()).log(Level.SEVERE, null, ex1);
+                            }
+
+                            
                             System.out.println("receive");
                             Logger.getLogger(PeerToPeer.class.getName()).log(Level.SEVERE, null, ex);
                         }
@@ -121,6 +129,17 @@ public class PeerToPeer {
             System.out.println("Send");
             Logger.getLogger(PeerToPeer.class.getName()).log(Level.SEVERE, null, ex);
         }
+    }
+    void close(){
+        try {
+            System.out.println("Socket Closed");
+            os.close();
+            is.close();
+            s.close();
+        } catch (IOException ex) {
+            Logger.getLogger(PeerToPeer.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
     }
 }
 

@@ -4,6 +4,10 @@
  * and open the template in the editor.
  */
 package peertopeer;
+import java.awt.event.WindowEvent;
+import javax.swing.JOptionPane;
+import javax.swing.JFrame;
+import javax.swing.JOptionPane;
 
 
 public class Main extends javax.swing.JFrame {
