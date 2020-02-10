@@ -4,7 +4,6 @@
  * and open the template in the editor.
  */
 package peertopeer;
-
 import java.io.File;
 import javax.swing.JFileChooser;
 
