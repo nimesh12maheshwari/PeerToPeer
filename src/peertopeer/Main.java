@@ -27,6 +27,7 @@ public class Main extends javax.swing.JFrame {
         initComponents();
         ob=new PeerToPeer();
         ob.function(this);
+        MYNAME.setText(Main.name);
     }
     
     /**
@@ -44,6 +45,7 @@ public class Main extends javax.swing.JFrame {
         Message = new javax.swing.JTextArea();
         Send = new javax.swing.JButton();
         Text = new javax.swing.JButton();
+        MYNAME = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setMaximumSize(new java.awt.Dimension(895, 562));
@@ -52,13 +54,16 @@ public class Main extends javax.swing.JFrame {
 
         ChatArea.setEditable(false);
         ChatArea.setColumns(20);
+        ChatArea.setFont(new java.awt.Font("Nirmala UI", 2, 18)); // NOI18N
         ChatArea.setRows(5);
         jScrollPane1.setViewportView(ChatArea);
 
         Message.setColumns(20);
+        Message.setFont(new java.awt.Font("Caladea", 0, 18)); // NOI18N
         Message.setRows(5);
         jScrollPane2.setViewportView(Message);
 
+        Send.setFont(new java.awt.Font("Source Code Pro", 0, 24)); // NOI18N
         Send.setText("Send");
         Send.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -66,6 +71,7 @@ public class Main extends javax.swing.JFrame {
             }
         });
 
+        Text.setFont(new java.awt.Font("Source Code Pro", 0, 24)); // NOI18N
         Text.setText("File");
         Text.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -73,34 +79,43 @@ public class Main extends javax.swing.JFrame {
             }
         });
 
+        MYNAME.setFont(new java.awt.Font("Trebuchet MS", 1, 36)); // NOI18N
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(70, 70, 70)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 705, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 376, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(35, 35, 35)
-                        .addComponent(Send)
-                        .addGap(18, 18, 18)
-                        .addComponent(Text)))
+                        .addGap(70, 70, 70)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 705, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 376, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(35, 35, 35)
+                                .addComponent(Send)
+                                .addGap(18, 18, 18)
+                                .addComponent(Text, javax.swing.GroupLayout.PREFERRED_SIZE, 99, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(256, 256, 256)
+                        .addComponent(MYNAME, javax.swing.GroupLayout.PREFERRED_SIZE, 340, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(120, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 444, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(MYNAME, javax.swing.GroupLayout.PREFERRED_SIZE, 55, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 355, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(28, 28, 28)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(Send)
-                        .addComponent(Text)))
-                .addContainerGap(52, Short.MAX_VALUE))
+                    .addComponent(Text, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                        .addComponent(Send, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 51, Short.MAX_VALUE)
+                        .addComponent(jScrollPane2, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)))
+                .addContainerGap(72, Short.MAX_VALUE))
         );
 
         pack();
@@ -126,11 +141,12 @@ public class Main extends javax.swing.JFrame {
         JFileChooser jk=new JFileChooser();
         jk.showOpenDialog(null);
         File f=jk.getSelectedFile();
-        String  fn = f.getPath();
-        fileFlag=true;
-        fn=fn.replace('\\', '/');
-        Message.setText(fn);  // TODO add your handling code here:
-        
+        if(f!=null){
+            String  fn = f.getPath();
+            fileFlag=true;
+            fn=fn.replace('\\', '/');
+            Message.setText(fn);  // TODO add your handling code here:
+        }
     }//GEN-LAST:event_TextActionPerformed
 
     /**
@@ -170,6 +186,7 @@ public class Main extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTextArea ChatArea;
+    private javax.swing.JLabel MYNAME;
     private javax.swing.JTextArea Message;
     private javax.swing.JButton Send;
     private javax.swing.JButton Text;
