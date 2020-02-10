@@ -120,15 +120,27 @@
       </Properties>
     </Component>
     <Component class="javax.swing.JTextField" name="i1">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="127"/>
+      </Properties>
     </Component>
     <Component class="javax.swing.JTextField" name="i2">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="0"/>
+      </Properties>
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="i2ActionPerformed"/>
       </Events>
     </Component>
     <Component class="javax.swing.JTextField" name="i4">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="1"/>
+      </Properties>
     </Component>
     <Component class="javax.swing.JTextField" name="i3">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="0"/>
+      </Properties>
     </Component>
     <Component class="javax.swing.JLabel" name="jLabel3">
       <Properties>

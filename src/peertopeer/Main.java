@@ -9,6 +9,9 @@ import javax.swing.JOptionPane;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 
+import java.io.File;
+import javax.swing.JFileChooser;
+
 
 public class Main extends javax.swing.JFrame {
 
@@ -18,6 +21,7 @@ public class Main extends javax.swing.JFrame {
     static String ip;
     static String name;
     PeerToPeer ob=null;
+    boolean fileFlag=false;
     
     public Main() {
         initComponents();
@@ -63,6 +67,11 @@ public class Main extends javax.swing.JFrame {
         });
 
         Text.setText("File");
+        Text.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                TextActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -102,10 +111,27 @@ public class Main extends javax.swing.JFrame {
     
     private void SendActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SendActionPerformed
         // TODO add your handling code here:
-        ob.send(Main.name+": "+Message.getText());
+        if(fileFlag==false)
+            ob.send(Main.name+": "+Message.getText());
+        else{
+            ob.sourceFilePath=Message.getText();
+            ob.sendFile();
+            fileFlag=false;
+        }
         ChatArea.append(Main.name+": "+Message.getText()+"\n");
         Message.setText("");
     }//GEN-LAST:event_SendActionPerformed
+
+    private void TextActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TextActionPerformed
+        JFileChooser jk=new JFileChooser();
+        jk.showOpenDialog(null);
+        File f=jk.getSelectedFile();
+        String  fn = f.getPath();
+        fileFlag=true;
+        fn=fn.replace('\\', '/');
+        Message.setText(fn);  // TODO add your handling code here:
+        
+    }//GEN-LAST:event_TextActionPerformed
 
     /**
      * @param args the command line arguments

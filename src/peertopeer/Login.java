@@ -61,11 +61,18 @@ public class Login extends javax.swing.JFrame {
 
         jLabel2.setText("Enter friend's ip:");
 
+        i1.setText("127");
+
+        i2.setText("0");
         i2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 i2ActionPerformed(evt);
             }
         });
+
+        i4.setText("1");
+
+        i3.setText("0");
 
         jLabel3.setText(".");
 
